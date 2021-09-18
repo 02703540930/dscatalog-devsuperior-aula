@@ -1,12 +1,16 @@
 package com.devsuperior.dscatalog.entitites;
 
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 //serializable é um recurso que transforma os dados em bytes para melhor trafego em rede
@@ -19,6 +23,12 @@ public class Category implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
+	
+	@Column (columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")  // Recomendação com o padrão UTC - Greenwitch
+	private Instant createdAt;
+	
+	@Column (columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")  // Recomendação com o padrão UTC - Greenwitch
+	private Instant updatedAt;
 	
 	public Category() {
 		
@@ -45,6 +55,26 @@ public class Category implements Serializable {
 		this.name = name;
 	}
 
+	
+	
+	public Instant getCreatedAt() {
+		return createdAt;
+	}
+
+	public Instant getUpdateddAt() {
+		return updatedAt;
+	}
+	
+	@PrePersist
+	public void prePersist() {
+		createdAt = Instant.now();
+	}
+	
+	@PreUpdate
+	public void preUpdate() {
+		updatedAt = Instant.now();
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

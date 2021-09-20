@@ -17,7 +17,7 @@ public class ProductDTO implements Serializable {
 	private String description;
 	private Double price;
 	private String imgUrl;
-	private Instant date;   // no curso o produto nao tem data, é apenas uma referencia de como implementar
+	private Instant date; // no curso o produto nao tem data, eh apenas uma referencia de como implementar
 							// data tanto no sts e sql
 
 	// Define uma lista para as receber as categorias

@@ -51,6 +51,10 @@ public class Product implements Serializable {
 		this.date = date;
 	}
 
+	public Product() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -119,7 +123,5 @@ public class Product implements Serializable {
 		Product other = (Product) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-	
 	
 }

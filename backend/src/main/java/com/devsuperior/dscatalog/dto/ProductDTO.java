@@ -32,6 +32,8 @@ public class ProductDTO implements Serializable {
 		this.imgUrl = imgUrl;
 		this.date = date;
 	}
+	
+	public ProductDTO() {}
 
 	// Construtor para buscar dados da entidade produtos e atribuir para os
 	// atributos do DTO

@@ -8,4 +8,5 @@ import com.devsuperior.dscatalog.entitites.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{
 
+	User findByEmail(String email);  //busca por email para validar se existe igual no banco
 }

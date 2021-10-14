@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.devsuperior.dscatalog.dto.RoleDTO;
 import com.devsuperior.dscatalog.dto.UserDTO;
 import com.devsuperior.dscatalog.dto.UserInsertDTO;
+import com.devsuperior.dscatalog.dto.UserUpdateDTO;
 import com.devsuperior.dscatalog.entitites.Role;
 import com.devsuperior.dscatalog.entitites.User;
 import com.devsuperior.dscatalog.repositories.RoleRepository;
@@ -63,7 +64,7 @@ public class UserService {
 
 	// Método para atualizar um dado nas entidades e trata exceção
 	@Transactional
-	public UserDTO update(Long id, UserDTO dto) {
+	public UserDTO update(Long id, UserUpdateDTO dto) {
 		try {
 			User entity = repository.getOne(id);     // instancia com getOne antes de salvar sem ir no banco
 			copyDtotoEntity(dto, entity);

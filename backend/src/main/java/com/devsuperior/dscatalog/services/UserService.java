@@ -112,6 +112,8 @@ public class UserService implements UserDetailsService{
 
 	
 	//utilizado para buscar o email do banco para ver se está atualizanado no usuario correto
+	// erros qdo email nao existe 400, recusrso protegito com token inválido 401, acessar com token valido mas o recurso nao for valido 403
+	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = repository.findByEmail(username);
